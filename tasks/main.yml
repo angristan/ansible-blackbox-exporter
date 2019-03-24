@@ -1,0 +1,22 @@
+---
+
+- name: Check if Blackbox exporter is installed
+  stat:
+    path: "/usr/local/bin/blackbox_exporter"
+  register: blackbox_exporter_binary
+
+- include: install.yml
+  when: not blackbox_exporter_binary.stat.exists or blackbox_exporter_force_install
+  tags:
+    - blackbox_exporter.install
+
+- include: configure.yml
+  tags:
+    - blackbox_exporter.configure
+
+- name: Ensure blackbox_exporter service is started and enabled
+  systemd:
+    daemon_reload: true
+    name: blackbox_exporter
+    state: started
+    enabled: true
