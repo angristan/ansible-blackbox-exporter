@@ -1,6 +1,6 @@
 ---
 
-- name: Restart blackbox exporter
+- name: restart blackbox exporter
   become: true
   systemd:
     daemon_reload: true
