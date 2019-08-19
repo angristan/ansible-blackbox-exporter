@@ -6,8 +6,8 @@ After=network.target
 [Service]
 Type=simple
 PIDFile=/var/run/blackbox_exporter.pid
-User="{{ node_exporter_system_user }}"
-Group="{{ node_exporter_system_group }}"
+User={{ blackbox_exporter_system_user }}
+Group={{ blackbox_exporter_system_group }}
 PermissionsStartOnly=true
 ExecReload=/bin/kill -HUP $MAINPID
 ExecStart=/usr/local/bin/blackbox_exporter \

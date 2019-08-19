@@ -7,7 +7,7 @@
     name: blackbox_exporter
     state: restarted
 
-- name: Reload blackbox exporter
+- name: reload blackbox exporter
   become: true
   systemd:
     name: blackbox_exporter

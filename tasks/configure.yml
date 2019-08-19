@@ -14,8 +14,8 @@
   template:
     src: blackbox_exporter.yml.j2
     dest: /etc/blackbox_exporter.yml
-    owner: "{{ node_exporter_system_user }}"
-    group: "{{ node_exporter_system_group }}"
+    owner: "{{ blackbox_exporter_system_user }}"
+    group: "{{ blackbox_exporter_system_group }}"
     mode: 0644
   notify:
     - reload blackbox exporter

@@ -3,8 +3,8 @@
 blackbox_exporter_version: 0.14.0
 blackbox_exporter_force_install: false
 
-blackbox_exporter_system_group: "blackbox-exporter"
-blackbox_exporter_system_user: "{{ blackbox_exporter_system_group }}"
+blackbox_exporter_system_user: "blackbox-exporter"
+blackbox_exporter_system_group: "{{ blackbox_exporter_system_user }}"
 
 blackbox_exporter_listen_address: "0.0.0.0:9115"
 

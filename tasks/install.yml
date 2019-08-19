@@ -2,16 +2,16 @@
 
 - name: Create blackbox_exporter system group
   group:
-    name: "{{ node_exporter_system_user }}"
+    name: "{{ blackbox_exporter_system_group }}"
     system: true
     state: present
 
 - name: Create blackbox_exporter system user
   user:
-    name: "{{ node_exporter_system_group }}"
+    name: "{{ blackbox_exporter_system_user }}"
     system: true
     shell: "/sbin/nologin"
-    group: blackbox-exporter
+    group: "{{ blackbox_exporter_system_group }}"
     createhome: false
 
 - name: Download blackbox exporter binary to local folder
@@ -33,8 +33,8 @@
     src: "/tmp/blackbox_exporter-{{ blackbox_exporter_version }}.linux-{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}/blackbox_exporter"
     dest: "/usr/local/bin/blackbox_exporter"
     mode: 0750
-    owner: "{{ node_exporter_system_user }}"
-    group: "{{ node_exporter_system_group }}"
+    owner: "{{ blackbox_exporter_system_user }}"
+    group: "{{ blackbox_exporter_system_group }}"
   notify:
     - restart blackbox exporter
 
