@@ -1,7 +1,5 @@
 # Ansible role for Blackbox exporter
 
-[![CircleCI](https://circleci.com/gh/angristan/ansible-blackbox-exporter.svg?style=svg)](https://circleci.com/gh/angristan/ansible-blackbox-exporter)
-
 This role will setup [Blackbox exporter](https://github.com/prometheus/blackbox_exporter) on any Linux machine using systemd.
 
 ## Requirements
